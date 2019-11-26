@@ -14,6 +14,7 @@ header-includes:
     - \usepackage{subfig}
     - \usepackage{bm}
     - \DeclareMathOperator\logit{logit}
+	- \newcommand\bleu[1]{\textcolor{blue}{#1}}
 biblatexoptions:
     - maxbibnames=99
     - maxcitenames=5
@@ -270,12 +271,12 @@ $\rightarrow$ DAS3H = item **D**ifficulty, student **A**bility, **S**kill and **
 
 For an embedding dimension of $d=0$, DAS3H is:
 
-$\mathbb{P}\left(Y_{s,j,t}=1\right)=\sigma (\alpha_s - \delta_j + \underbrace{\alert{\sum_{k \in KC(j)} \beta_k}}_{\text{skill easiness biases}} +h_{\theta}\left(\mathrm{t}_{s,j,1:l},\mathrm{y}_{s,j,1:l-1}\right))$.
+$\mathbb{P}\left(Y_{s,j,t}=1\right)=\sigma (\alpha_s - \delta_j + \underbrace{\bleu{\sum_{k \in KC(j)} \beta_k}}_{\text{skill easiness biases}} +h_{\theta}\left(\mathrm{t}_{s,j,1:l},\mathrm{y}_{s,j,1:l-1}\right))$.
 
 We choose:
 \begin{align*}
-    h_{\theta}(\mathrm{t}_{s,j,1:l},\mathrm{y}_{s,j,1:l-1}) = \alert{\sum_{k \in KC(j)}}&\sum_{w=0}^{W-1}\theta_{\alert{k},2w+1}\log(1+c_{s,\alert{k},w})\\
-    &- \theta_{\alert{k},2w+2}\log(1+a_{s,\alert{k},w}).
+    h_{\theta}(\mathrm{t}_{s,j,1:l},\mathrm{y}_{s,j,1:l-1}) = \bleu{\sum_{k \in KC(j)}}&\sum_{w=0}^{W-1}\theta_{\bleu{k},2w+1}\log(1+c_{s,\bleu{k},w})\\
+    &- \theta_{\bleu{k},2w+2}\log(1+a_{s,\bleu{k},w}).
 \end{align*}
 
 $\rightarrow$ Now, $h_{\theta}$ can be seen as a sum of _skill_ memory strengths!
@@ -462,7 +463,7 @@ $\rightarrow$ Assuming **different learning and forgetting curves for different 
 
 ## Thanks for your attention!
 
-Our paper is already available at:
+Our paper is available at:
 
 \centering
 `https://arxiv.org/abs/1905.06873`
