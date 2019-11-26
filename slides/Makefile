@@ -1,3 +1,9 @@
+fusion:
+	pandoc -s --bibliography=biblio.bib --biblatex fusion.md -t beamer -o fusion.tex
+	pdflatex fusion
+	biber fusion
+	pdflatex fusion
+
 edm:
 	pandoc -s --bibliography=biblio.bib --biblatex presentation.md -t beamer -o presentation.tex
 	pdflatex presentation
